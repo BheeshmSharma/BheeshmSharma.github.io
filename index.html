@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bheeshm Sharma - Research Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 5px solid #f0f0f0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .title {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+
+        section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .about p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .research-interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .interest-tag {
+            background: #f0f0f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .paper {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .paper:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .paper-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .paper-title a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .paper-title a:hover {
+            text-decoration: underline;
+        }
+
+        .paper-authors {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .paper-venue {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 12px;
+            font-size: 0.9em;
+        }
+
+        .paper-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .paper-links a {
+            padding: 6px 14px;
+            background: #f5f5f5;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85em;
+            border: 1px solid #ddd;
+            transition: all 0.2s;
+        }
+
+        .paper-links a:hover {
+            background: #e8e8e8;
+            border-color: #999;
+        }
+
+        .news-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid #e0e0e0;
+        }
+
+        .news-date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 10px;
+        }
+
+        .contact-item strong {
+            min-width: 80px;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .highlight {
+            background: #fff9e6;
+            padding: 20px;
+            border-left: 4px solid #ffd700;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Replace with your actual image -->
+            <img src="/figures/BheeshmSharma.jpg" alt="Bheeshm Sharma" class="profile-image">
+            
+            <h1>Bheeshm Sharma</h1>
+            <div class="title">Ph.D. Student | Department of IEOR, IIT Bombay</div>
+            
+            <div class="social-links">
+                <a href="mailto:bheeshmsharma@iitb.ac.in">📧 Email</a>
+                <a href="https://github.com/BheeshmSharma" target="_blank">💻 GitHub</a>
+                <a href="https://scholar.google.com/citations?user=Q4VPZEQAAAAJ&hl=en" target="_blank">🎓 Google Scholar</a>
+                <a href="https://www.linkedin.com/in/bheeshm-sharma-bb7a721b8/" target="_blank">💼 LinkedIn</a> 
+                <a href="https://www.ieor.iitb.ac.in/students/Bheeshm_Sharma" target="_blank">💼 IITB Profile Page</a>>
+            </div>
+        </header>
+
+        <section class="about">
+            <h2>About Me</h2>
+            <p>
+                I am a Ph.D. student in the Department of Industrial Engineering and Operations Research (IEOR) at IIT Bombay, working under the guidance of Prof. Balamurugan Palaniappan. My research is centered on developing efficient deep learning and multi-modal generative AI methods for applications in medical imaging as well as real-world image and video generation, with a special emphasis on few-shot, weakly supervised, and self-supervised learning paradigms.
+            </p>
+            
+            <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">Research Interests</h3>
+            <div class="research-interests">
+                <span class="interest-tag">Medical Imaging</span>
+                <span class="interest-tag">Vision-Language Models</span>
+                <span class="interest-tag">Multimodel Generative AI</span>
+                <span class="interest-tag">Few shot Efficient Learning</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>📰 News</h2>
+            <div class="news-item">
+                <div class="news-date">November 2025</div>
+                <div>Our paper "RASALoRE" has been accepted at BMVC 2025! 🎉</div>
+            </div>
+            <div class="news-item">
+                <div class="news-date">October 2025</div>
+                <div>Presented paper at AIML Systems 2025 Conference</div>
+            </div>
+            <div class="news-item">
+                <div class="news-date">September 2025</div>
+                <div>Oral presentation at MICCAI 2025 BraTS Lighthouse Challenge.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📚 Publications</h2>
+            
+            <!-- Paper 1: RASALoRE -->
+            <div class="paper">
+                <div class="paper-title">
+                    <a href="rasalore/">RASALoRE: Region-Aware Spatial Attention with Location-based Random Embeddings for Weakly Supervised Anomaly Detection in Brain MRI Scans</a>
+                </div>
+                <div class="paper-authors">
+                    <strong>Bheeshm Sharma</strong>, Karthikeyan Jaganathan, Balamurugan Palaniappan
+                </div>
+                <div class="paper-venue">
+                    British Machine Vision Conference (BMVC), 2025
+                </div>
+                <div class="paper-links">
+                    <a href="rasalore/">🌐 Project Page</a>
+                    <a href="#">📄 Paper</a>
+                    <a href="https://github.com/BheeshmSharma/RASALoRE-BMVC-2025/">💻 Code</a>
+                    <a href="#">📊 Poster</a>
+                </div>
+            </div>
+
+            <!-- Paper 2 - Template 
+            <div class="paper">
+                <div class="paper-title">
+                    <a href="#">Your Second Paper Title Here</a>
+                </div>
+                <div class="paper-authors">
+                    Author 1, <strong>Bheeshm Sharma</strong>, Author 3
+                </div>
+                <div class="paper-venue">
+                    Conference Name, Year
+                </div>
+                <div class="paper-links">
+                    <a href="#">🌐 Project Page</a>
+                    <a href="#">📄 Paper</a>
+                    <a href="#">💻 Code</a>
+                </div>
+            </div>
+            -->
+
+        </section>
+
+        <section>
+            <h2>🎓 Education</h2>
+            <div class="paper">
+                <div class="paper-title">Ph.D. in Industrial Engineering and Operations Research</div>
+                <div class="paper-authors">Indian Institute of Technology Bombay</div>
+                <div class="paper-venue">2022 - Present</div>
+            </div>
+            <div class="paper">
+                <div class="paper-title">M.Sc. in Industrial Engineering and Operations Research</div>
+                <div class="paper-authors>"Industrial Engineering and Operations Research</div>
+                <div class="paper-venue">2020-2022</div>
+            </div>
+        </section>
+
+        <section>
+
+        <section>
+            <h2>📞 Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <span>bheeshmsharma@iitb.ac.in</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Office:</strong>
+                    <span>Medical Informatics Lab, A-91 Ecohub, IIT Bombay, Mumbai, India</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Bheeshm Sharma. Last updated: November 2025</p>
+            <p style="margin-top: 10px; font-size: 0.85em;">
+                Template inspired by academic portfolio designs
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
