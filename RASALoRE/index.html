@@ -290,13 +290,19 @@
                 <div class="figure">
                     <img src="Files/RASALoRE_Arch.png" alt="RASALoRE Architecture">
                     <div class="figure-caption">
-                        Figure 3: Overview of RASALoRE Architecture. The network leverages fixed location-based random embeddings (LoRE) within a Region-Aware Spatial Attention (RASA) module for precise anomaly localization.
+                        Figure 3: Overview of RASALoRE Architecture. The network utilizes fixed Location-based Random Embeddings (LoRE) within a Region-Aware Spatial Attention (RASA) module for precise anomaly localization.
                     </div>
                 </div>
 
                 <p>
                     <strong>Location-based Random Embeddings (LoRE):</strong> We generate a grid of evenly spaced Candidate Prompt Points (CPPs) across the input image. Each CPP receives fixed, non-learnable random embeddings based on sinusoidal transformations, independent of dataset-specific biases.
                 </p>
+
+                <div class="figure">
+                    <img src="Files/LoRE_Refiner.png" alt="LoRE and Refiner">
+                    <div class="figure-caption">
+                        Figure 4: (a) Left: Candidate prompt point locations (in blue) overlaid as grid on input image, center: point activation mask (red denoting active and blue denoting inactive points) overlaid on input image, right: weak anomaly mask corresponding to input image. (b) Refiner Module.
+                </div>
 
                 <p>
                     <strong>Region-Aware Spatial Attention (RASA):</strong> RASA enables interaction between location embeddings and spatial information through multi-head attention, where CPP embeddings form the query, and refined image representations provide key and value components. This allows the model to effectively focus on anomalous regions.
@@ -310,7 +316,7 @@
                 <div class="figure">
                     <img src="Files/RASALoRE_Qualitative_Results.png" alt="Qualitative Comparison">
                     <div class="figure-caption">
-                        Figure 4: Qualitative comparison of predicted anomaly masks. RASALoRE produces sharper boundaries and more accurate anomaly localization compared to baseline methods.
+                        Figure 5: Qualitative comparison of predicted anomaly masks. RASALoRE produces sharper boundaries and more accurate anomaly localization compared to baseline methods.
                     </div>
                 </div>
 
