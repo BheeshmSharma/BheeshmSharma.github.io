@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RASALoRE: Region-Aware Spatial Attention</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #333;
+            background: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0 40px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            color: #000;
+        }
+
+        .conference {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .authors {
+            font-size: 1.1em;
+            margin: 25px 0;
+            color: #333;
+        }
+
+        .authors a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .authors a:hover {
+            text-decoration: underline;
+        }
+
+        .affiliation {
+            font-size: 0.95em;
+            color: #666;
+            margin: 15px 0;
+        }
+
+        .links {
+            margin: 35px 0;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            padding: 10px 25px;
+            background: #f5f5f5;
+            color: #333;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95em;
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            background: #e8e8e8;
+            border-color: #999;
+        }
+
+        .content {
+            padding: 50px 0;
+        }
+
+        section {
+            margin: 50px 0;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #000;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            font-weight: 400;
+            margin: 30px 0 15px 0;
+            color: #333;
+        }
+
+        p {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .abstract {
+            background: #fafafa;
+            padding: 30px;
+            border-left: 3px solid #333;
+            margin: 30px 0;
+            font-size: 1.05em;
+        }
+
+        .figure {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #e0e0e0;
+        }
+
+        .figure-caption {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+            font-style: italic;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .contributions {
+            margin: 25px 0;
+        }
+
+        .contributions li {
+            margin: 15px 0;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .links a {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+
+            .content {
+                padding: 30px 0;
+            }
+
+            .abstract {
+                padding: 20px;
+            }
+        }
+
+        .teaser {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .teaser img {
+            max-width: 100%;
+            border: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RASALoRE: Region-Aware Spatial Attention with Location-based Random Embeddings for Weakly Supervised Anomaly Detection in Brain MRI Scans</h1>
+            
+            <div class="conference">British Machine Vision Conference (BMVC) 2025</div>
+            
+            <div class="authors">
+                <a href="mailto:bheeshmsharma@iitb.ac.in">Bheeshm Sharma</a><sup>1</sup>,
+                <a href="mailto:karthikeyanj@iitb.ac.in">Karthikeyan Jaganathan</a><sup>2</sup>,
+                <a href="mailto:balamurugan.palaniappan@iitb.ac.in">Balamurugan Palaniappan</a><sup>3</sup>
+            </div>
+            
+            <div class="affiliation">
+                <sup>1,3</sup>Department of Industrial Engineering & Operations Research (IEOR), IIT Bombay, India<br>
+                <sup>2</sup>Department of Energy Science and Engineering (DESE), IIT Bombay, India
+            </div>
+            
+            <div class="links">
+                <a href="https://arxiv.org/abs/2510.08052">📄 Paper</a>
+                <a href="https://github.com/BheeshmSharma/RASALoRE-BMVC-2025/">💻 Code</a>
+                <a href="https://github.com/BheeshmSharma/BheeshmSharma.github.io/blob/main/RASALoRE/Files/RASALoRE_BMVC_Poster.pdf">📊 Poster</a>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Teaser Figure -->
+            <div class="teaser">
+                <img src="Files/RASALoRE_Arch.png" alt="RASALoRE Teaser">
+                <div class="figure-caption">
+                    Figure 1: RASALoRE achieves state-of-the-art weakly supervised anomaly detection in brain MRI scans using only slice-level labels, significantly outperforming existing methods while using less than 8M parameters.
+                </div>
+            </div>
+
+            <!-- Abstract -->
+            <section id="abstract">
+                <h2>Abstract</h2>
+                <div class="abstract">
+                    Weakly Supervised Anomaly Detection (WSAD) in brain MRI scans is an important challenge for quick and accurate detection of brain anomalies when only weak labels (e.g., slice-level) are available. We propose <strong>RASALoRE</strong>: Region Aware Spatial Attention with Location-based Random Embeddings, a novel two-stage WSAD framework. In the first stage, we introduce a <strong>Discriminative Dual Prompt Tuning (DDPT)</strong> mechanism that generates high-quality pseudo weak masks. In the second stage, we propose a segmentation network with a region-aware spatial attention mechanism that relies on fixed location-based random embeddings. Our approach achieves state-of-the-art anomaly detection performance while utilizing less than 8 million parameters.
+                </div>
+            </section>
+
+            <!-- Key Contributions -->
+            <section id="contributions">
+                <h2>Key Contributions</h2>
+                <ul class="contributions">
+                    <li>A novel <strong>two-stage weakly supervised anomaly detection (WSAD) framework</strong> that operates using only slice-level labels.</li>
+                    <li>A <strong>prompt-tuning strategy (DDPT)</strong> to generate high-quality pseudo-masks from slice level supervision using vision-language models.</li>
+                    <li>A <strong>Region-Aware Spatial Attention (RASA)</strong> mechanism guided by <strong>Location-based Random Embeddings (LoRE)</strong> to effectively capture local contextual dependencies.</li>
+                    <li>Superior performance while <strong>significantly reducing the number of model parameters</strong> (~7.8M) compared to existing methods.</li>
+                </ul>
+            </section>
+
+            <!-- Method Overview -->
+            <section id="method">
+                <h2>Method Overview</h2>
+                
+                <p>
+                    Our approach consists of two stages: (1) Discriminative Dual Prompt Tuning (DDPT) for generating pseudo weak masks, and (2) RASALoRE segmentation network for precise anomaly localization.
+                </p>
+
+                <h3>Stage 1: Discriminative Dual Prompt Tuning (DDPT)</h3>
+                <div class="figure">
+                    <img src="Files/DDPT_Arch.png" alt="DDPT Architecture">
+                    <div class="figure-caption">
+                        Figure 2: Overview of Discriminative Dual Prompt Tuning (DDPT). DDPT employs learnable text and visual prompts with frozen encoders to classify MRI slices and generate coarse anomaly segmentation maps.
+                    </div>
+                </div>
+
+                <p>
+                    DDPT employs a classification-driven approach to generate coarse anomaly segmentation maps using only weak (slice-level) supervision. By training a discriminative network to classify brain MRI scan images, we extract attention maps that contain potential region localization information.
+                </p>
+
+                <h3>Stage 2: RASALoRE Architecture</h3>
+                <div class="figure">
+                    <img src="Files/RASALoRE_Arch.png" alt="RASALoRE Architecture">
+                    <div class="figure-caption">
+                        Figure 3: Overview of RASALoRE Architecture. The network leverages fixed location-based random embeddings (LoRE) within a Region-Aware Spatial Attention (RASA) module for precise anomaly localization.
+                    </div>
+                </div>
+
+                <p>
+                    <strong>Location-based Random Embeddings (LoRE):</strong> We generate a grid of evenly spaced Candidate Prompt Points (CPPs) across the input image. Each CPP receives fixed, non-learnable random embeddings based on sinusoidal transformations, independent of dataset-specific biases.
+                </p>
+
+                <p>
+                    <strong>Region-Aware Spatial Attention (RASA):</strong> RASA enables interaction between location embeddings and spatial information through multi-head attention, where CPP embeddings form the query, and refined image representations provide key and value components. This allows the model to effectively focus on anomalous regions.
+                </p>
+            </section>
+
+            <!-- Qualitative Results -->
+            <section id="results">
+                <h2>Results</h2>
+
+                <div class="figure">
+                    <img src="Files/RASALoRE_Qualitative_Results.png" alt="Qualitative Comparison">
+                    <div class="figure-caption">
+                        Figure 4: Qualitative comparison of predicted anomaly masks. RASALoRE produces sharper boundaries and more accurate anomaly localization compared to baseline methods.
+                    </div>
+                </div>
+
+                <p>
+                    Visual analysis reveals that RASALoRE achieves sharp boundaries and accurate localization across diverse tumor morphologies, significantly outperforming reconstruction-based and CAM-based approaches on BraTS20, BraTS21, BraTS23, and MSD datasets.
+                </p>
+            </section>
+
+            <!-- Key Features -->
+            <section id="key-features">
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Parameter Efficiency:</strong> Less than 8 million parameters (~7.8M)</li>
+                    <li><strong>Weakly Supervised:</strong> Operates using only slice-level labels</li>
+                    <li><strong>Fixed Random Embeddings:</strong> Non-learnable location-based embeddings independent of dataset biases</li>
+                    <li><strong>Region-Aware Attention:</strong> Effectively captures local contextual dependencies</li>
+                    <li><strong>Multimodal Extension:</strong> Successfully extends to multiple MRI modalities (T1, T1ce, FLAIR)</li>
+                </ul>
+            </section>
+
+            <!-- Acknowledgments -->
+            <section id="acknowledgments">
+                <h2>Acknowledgments</h2>
+                <p>
+                    We gratefully acknowledge Technocraft Centre of Applied Artificial Intelligence (TCAAI), IIT Bombay for their support through generous funding.
+                </p>
+            </section>
+        </div>
+
+        <footer>
+            <p>© 2025 Bheeshm Sharma, Karthikeyan Jaganathan, Balamurugan Palaniappan</p>
+            <p>IIT Bombay, India</p>
+        </footer>
+    </div>
+</body>
+</html>
