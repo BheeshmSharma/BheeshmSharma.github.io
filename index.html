@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bheeshm Sharma - AI Research Portfolio</title>
+    <title>Bheeshm Sharma - Research Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,21 +12,17 @@
         }
 
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --accent: #f59e0b;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-tertiary: #94a3b8;
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
             --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
-            --border: #e2e8f0;
-            --success: #10b981;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         body {
@@ -37,98 +33,21 @@
             overflow-x: hidden;
         }
 
-        /* Animated background particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--primary-light);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 15s infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-            25% { transform: translate(100px, -100px) scale(1.2); opacity: 0.5; }
-            50% { transform: translate(-50px, -200px) scale(0.8); opacity: 0.3; }
-            75% { transform: translate(-150px, -100px) scale(1.1); opacity: 0.4; }
-        }
-
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        /* Hero Header */
+        /* Animated Header */
         header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 40px;
+            text-align: center;
             position: relative;
-            background: var(--gradient-1);
-            padding: 120px 40px 80px;
             overflow: hidden;
-            margin-bottom: 60px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 40px;
         }
 
         header::before {
@@ -139,7 +58,7 @@
             width: 200%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shine 4s infinite;
+            animation: shine 3s infinite;
         }
 
         @keyframes shine {
@@ -147,90 +66,49 @@
             50% { left: 100%; }
         }
 
-        .hero-content {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 50px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 30px;
+            border: 6px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
             position: relative;
             z-index: 1;
         }
 
-        .profile-section {
-            text-align: center;
-        }
-
-        .profile-image-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-
-        .profile-image {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid rgba(255,255,255,0.3);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-            transition: transform 0.4s ease;
-            position: relative;
-        }
-
         .profile-image:hover {
-            transform: scale(1.08) rotate(3deg);
-        }
-
-        .status-badge {
-            position: absolute;
-            bottom: 20px;
-            right: 10px;
-            background: var(--success);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.75em;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .hero-text {
-            color: white;
+            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 3.5em;
+            font-size: 3em;
             margin-bottom: 15px;
-            font-weight: 800;
+            color: white;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            line-height: 1.2;
         }
 
         .title {
-            font-size: 1.4em;
+            font-size: 1.3em;
             color: rgba(255,255,255,0.95);
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .hero-description {
-            font-size: 1.1em;
-            color: rgba(255,255,255,0.9);
             margin-bottom: 30px;
-            line-height: 1.6;
+            position: relative;
+            z-index: 1;
         }
 
         .social-links {
             display: flex;
-            gap: 12px;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .social-links a {
@@ -239,93 +117,39 @@
             backdrop-filter: blur(10px);
             color: white;
             text-decoration: none;
-            border-radius: 10px;
-            font-size: 0.9em;
+            border-radius: 30px;
+            font-size: 0.95em;
             transition: all 0.3s ease;
             border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 500;
         }
 
         .social-links a:hover {
             background: rgba(255,255,255,0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        /* Stats Section */
-        .stats-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin: -60px auto 60px;
-            max-width: 1200px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--primary);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-
-        /* Sections */
         section {
             background: var(--bg-primary);
-            padding: 60px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--gradient-1);
+            padding: 50px 45px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-md);
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         section:hover {
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         h2 {
-            font-size: 2.2em;
-            margin-bottom: 35px;
+            font-size: 2em;
+            margin-bottom: 30px;
             color: var(--text-primary);
             position: relative;
             padding-bottom: 15px;
             font-weight: 700;
-            display: inline-block;
         }
 
         h2::after {
@@ -333,23 +157,15 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 100%;
+            width: 60px;
             height: 4px;
-            background: var(--gradient-1);
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            margin-top: 30px;
         }
 
         .about p {
             margin-bottom: 20px;
-            font-size: 1.1em;
+            font-size: 1.05em;
             color: var(--text-secondary);
             line-height: 1.8;
         }
@@ -362,424 +178,207 @@
         }
 
         .interest-tag {
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-size: 0.9em;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s ease;
             cursor: default;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         .interest-tag:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
 
-        .expertise-list {
-            background: var(--bg-tertiary);
+        .paper {
+            margin-bottom: 40px;
             padding: 30px;
-            border-radius: 16px;
-        }
-
-        .expertise-list h3 {
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        .expertise-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: var(--text-secondary);
-        }
-
-        .expertise-item::before {
-            content: '✓';
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            font-weight: bold;
-            font-size: 0.8em;
-            flex-shrink: 0;
-        }
-
-        /* News Section */
-        .news-timeline {
-            position: relative;
-            padding-left: 40px;
-        }
-
-        .news-timeline::before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 10px;
-            bottom: 10px;
-            width: 2px;
-            background: var(--border);
-        }
-
-        .news-item {
-            position: relative;
-            margin-bottom: 30px;
-            padding: 25px 30px;
             background: var(--bg-secondary);
             border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
             transition: all 0.3s ease;
         }
 
-        .news-item::before {
-            content: '';
-            position: absolute;
-            left: -35px;
-            top: 30px;
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px var(--primary-light);
-        }
-
-        .news-item:hover {
-            background: white;
-            transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .news-date {
-            color: var(--primary);
-            font-size: 0.9em;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .news-content {
-            color: var(--text-secondary);
-            font-size: 1.05em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Publications */
-        .paper {
-            margin-bottom: 40px;
-            padding: 35px;
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .paper::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 5px;
-            background: var(--gradient-1);
-            transform: scaleY(0);
-            transition: transform 0.4s ease;
-        }
-
-        .paper:hover::before {
-            transform: scaleY(1);
-        }
-
         .paper:hover {
-            background: white;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            transform: translateX(8px);
-            border-color: var(--primary-light);
+            background: #f3f4f6;
+            box-shadow: var(--shadow-md);
+            transform: translateX(5px);
         }
 
-        .paper-badge {
-            display: inline-block;
-            background: var(--gradient-2);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.75em;
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .paper:last-child {
+            margin-bottom: 0;
         }
 
         .paper-title {
-            font-size: 1.3em;
-            font-weight: 700;
+            font-size: 1.25em;
+            font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             line-height: 1.4;
         }
 
         .paper-title a {
-            color: var(--text-primary);
+            color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         .paper-title a:hover {
-            color: var(--primary);
+            color: var(--secondary-color);
+            text-decoration: underline;
         }
 
         .paper-authors {
             color: var(--text-secondary);
-            margin-bottom: 12px;
-            font-size: 1em;
-            line-height: 1.6;
-        }
-
-        .paper-authors strong {
-            color: var(--primary);
-            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.95em;
         }
 
         .paper-venue {
-            color: var(--text-tertiary);
+            color: var(--text-secondary);
             font-style: italic;
-            margin-bottom: 20px;
-            font-size: 0.95em;
+            margin-bottom: 15px;
+            font-size: 0.9em;
             font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .paper-venue::before {
-            content: '📍';
         }
 
         .paper-links {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .paper-links a {
-            padding: 10px 20px;
+            padding: 8px 18px;
             background: white;
-            color: var(--primary);
+            color: var(--primary-color);
             text-decoration: none;
-            border-radius: 10px;
-            font-size: 0.9em;
-            border: 2px solid var(--primary);
+            border-radius: 8px;
+            font-size: 0.85em;
+            border: 2px solid var(--primary-color);
             transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .paper-links a:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Education */
-        .education-item {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 30px;
-            margin-bottom: 35px;
-            padding: 30px;
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .education-item:hover {
-            background: white;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-            transform: translateY(-3px);
-        }
-
-        .education-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-3);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5em;
-            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.3);
-        }
-
-        .education-details h3 {
-            font-size: 1.3em;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .education-details .institution {
-            color: var(--text-secondary);
-            font-size: 1em;
-            margin-bottom: 5px;
-        }
-
-        .education-details .duration {
-            color: var(--text-tertiary);
-            font-size: 0.9em;
-            font-weight: 600;
-        }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .contact-card {
-            padding: 30px;
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .contact-card:hover {
-            background: white;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-color: var(--primary-light);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .contact-card h3 {
-            font-size: 1.1em;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .contact-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .contact-card a {
-            color: var(--primary);
-            text-decoration: none;
             font-weight: 500;
         }
 
-        .contact-card a:hover {
-            text-decoration: underline;
+        .paper-links a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
-        /* Footer */
+        .news-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            padding-left: 25px;
+            border-left: 4px solid var(--accent-color);
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .news-item:hover {
+            background: #f3f4f6;
+            transform: translateX(5px);
+        }
+
+        .news-date {
+            color: var(--primary-color);
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .news-item div:last-child {
+            color: var(--text-secondary);
+            font-size: 1.05em;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #f3f4f6;
+            transform: translateY(-2px);
+        }
+
+        .contact-item strong {
+            min-width: 80px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .contact-item span {
+            color: var(--text-secondary);
+        }
+
         footer {
             text-align: center;
-            padding: 50px 20px;
-            color: var(--text-tertiary);
+            padding: 40px 20px;
+            color: var(--text-secondary);
             font-size: 0.9em;
-            background: var(--bg-tertiary);
-            margin-top: 60px;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 30px;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .education-item {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .education-icon {
-                margin: 0 auto;
-            }
         }
 
         @media (max-width: 768px) {
-            nav .container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
+            header {
+                padding: 60px 20px;
             }
 
             h1 {
-                font-size: 2.5em;
+                font-size: 2.2em;
             }
 
             section {
-                padding: 40px 30px;
+                padding: 35px 25px;
             }
 
-            .stats-section {
-                grid-template-columns: 1fr;
-                margin: -40px auto 40px;
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .social-links a {
+                width: 100%;
+                max-width: 300px;
             }
 
             .paper {
-                padding: 25px;
+                padding: 20px;
             }
 
-            .contact-grid {
+            .contact-info {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -788,157 +387,179 @@
         }
 
         section {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 50px;
-            border: 2px solid rgba(255,255,255,0.5);
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            padding-top: 10px;
-        }
-
-        .scroll-indicator::before {
-            content: '';
-            width: 6px;
-            height: 10px;
-            background: white;
-            border-radius: 3px;
-            animation: scroll 2s infinite;
-        }
-
-        @keyframes scroll {
-            0% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(20px); }
+            animation: fadeIn 0.6s ease-out;
         }
     </style>
 </head>
 <body>
-    <div class="particles">
-        <div class="particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; top: 80%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 60%; top: 30%; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 80%; top: 70%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 30%; top: 50%; animation-delay: 3s;"></div>
-        <div class="particle" style="left: 70%; top: 10%; animation-delay: 5s;"></div>
-    </div>
-
-    <nav>
-        <div class="container">
-            <div style="font-weight: 700; font-size: 1.2em; color: var(--primary);">BS</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <header>
-        <div class="hero-content">
-            <div class="profile-section">
-                <div class="profile-image-wrapper">
-                    <img src="/figures/BheeshmSharma.jpg" alt="Bheeshm Sharma" class="profile-image">
-                    <div class="status-badge">Available</div>
-                </div>
-            </div>
-            <div class="hero-text">
-                <h1>Bheeshm Sharma</h1>
-                <div class="title">Ph.D. Scholar | VersatAI Lab @ IIT Bombay</div>
-                <div class="hero-description">
-                    Developing efficient deep learning & multimodal generative AI methods for medical imaging and real-world applications
-                </div>
-                <div class="social-links">
-                    <a href="mailto:bheeshmsharma@iitb.ac.in">📧 Email</a>
-                    <a href="https://github.com/BheeshmSharma" target="_blank">💻 GitHub</a>
-                    <a href="https://scholar.google.com/citations?user=Q4VPZEQAAAAJ&hl=en" target="_blank">🎓 Scholar</a>
-                    <a href="https://www.linkedin.com/in/bheeshm-sharma-bb7a721b8/" target="_blank">💼 LinkedIn</a>
-                    <a href="https://www.ieor.iitb.ac.in/students/Bheeshm_Sharma" target="_blank">🏛️ IITB</a>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator"></div>
-    </header>
-
-    <div class="stats-section">
-        <div class="stat-card">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Publications</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">3+</div>
-            <div class="stat-label">Years Research</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">2025</div>
-            <div class="stat-label">BMVC Accepted</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">AI/ML</div>
-            <div class="stat-label">Focus Area</div>
-        </div>
-    </div>
-
     <div class="container">
-        <section id="about" class="about">
+        <header>
+            <img src="/figures/BheeshmSharma.jpg" alt="Bheeshm Sharma" class="profile-image">
+            
+            <h1>Bheeshm Sharma</h1>
+            <div class="title">Ph.D. Scholar | VersatAI Lab @ Department of IEOR, IIT Bombay</div>
+            
+            <div class="social-links">
+                <a href="mailto:bheeshmsharma@iitb.ac.in">📧 Email</a>
+                <a href="https://github.com/BheeshmSharma" target="_blank">💻 GitHub</a>
+                <a href="https://scholar.google.com/citations?user=Q4VPZEQAAAAJ&hl=en" target="_blank">🎓 Scholar</a>
+                <a href="https://www.linkedin.com/in/bheeshm-sharma-bb7a721b8/" target="_blank">💼 LinkedIn</a>
+                <a href="https://www.ieor.iitb.ac.in/students/Bheeshm_Sharma" target="_blank">🏛️ IITB Profile</a>
+            </div>
+        </header>
+
+        <section class="about">
             <h2>About Me</h2>
-            <div class="about-grid">
-                <div>
-                    <p>
-                        I am a Ph.D. student in the Department of Industrial Engineering and Operations Research (IEOR) at IIT Bombay, working under the guidance of <strong>Prof. Balamurugan Palaniappan</strong>. My research is centered on developing efficient deep learning and multi-modal generative AI methods for applications in medical imaging as well as real-world image and video generation.
-                    </p>
-                    <p>
-                        I specialize in few-shot, weakly supervised, and self-supervised learning paradigms, aiming to create AI systems that can learn efficiently with limited data while maintaining high performance in critical applications.
-                    </p>
-                    
-                    <h3 style="margin-top: 30px; margin-bottom: 20px; font-size: 1.4em; color: var(--text-primary);">Research Interests</h3>
-                    <div class="research-interests">
-                        <span class="interest-tag">Medical Imaging</span>
-                        <span class="interest-tag">Vision-Language Models</span>
-                        <span class="interest-tag">Multimodal Generative AI</span>
-                        <span class="interest-tag">Few-Shot Learning</span>
-                        <span class="interest-tag">Anomaly Detection</span>
-                    </div>
+            <p>
+                I am a Ph.D. student in the Department of Industrial Engineering and Operations Research (IEOR) at IIT Bombay, working under the guidance of Prof. Balamurugan Palaniappan. My research is centered on developing efficient deep learning and multi-modal generative AI methods for applications in medical imaging as well as real-world image and video generation, with a special emphasis on few-shot, weakly supervised, and self-supervised learning paradigms.
+            </p>
+            
+            <h3 style="margin-top: 35px; margin-bottom: 20px; font-size: 1.4em; color: var(--text-primary);">Research Interests</h3>
+            <div class="research-interests">
+                <span class="interest-tag">Medical Imaging</span>
+                <span class="interest-tag">Vision-Language Models</span>
+                <span class="interest-tag">Multimodal Generative AI</span>
+                <span class="interest-tag">Few-Shot Efficient Learning</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>📰 News</h2>
+            <div class="news-item">
+                <div class="news-date">November 2025</div>
+                <div>Our paper "RASALoRE" has been accepted at BMVC 2025! 🎉</div>
+            </div>
+            <div class="news-item">
+                <div class="news-date">October 2025</div>
+                <div>Presented paper at AIML Systems 2025 Conference</div>
+            </div>
+            <div class="news-item">
+                <div class="news-date">September 2025</div>
+                <div>Oral presentation at MICCAI 2025 BraTS Lighthouse Challenge</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📚 Publications</h2>
+            
+            <div class="paper">
+                <div class="paper-title">
+                    <a href="RASALoRE/">RASALoRE: Region-Aware Spatial Attention with Location-based Random Embeddings for Weakly Supervised Anomaly Detection in Brain MRI Scans</a>
                 </div>
-                <div class="expertise-list">
-                    <h3>Key Expertise</h3>
-                    <div class="expertise-item">Deep Learning</div>
-                    <div class="expertise-item">Computer Vision</div>
-                    <div class="expertise-item">Medical Image Analysis</div>
-                    <div class="expertise-item">Diffusion Models</div>
-                    <div class="expertise-item">Weakly Supervised Learning</div>
-                    <div class="expertise-item">MRI Analysis</div>
+                <div class="paper-authors">
+                    <strong>Bheeshm Sharma</strong>, Karthikeyan Jaganathan, Balamurugan Palaniappan
+                </div>
+                <div class="paper-venue">
+                    British Machine Vision Conference (BMVC), 2025
+                </div>
+                <div class="paper-links">
+                    <a href="RASALoRE/">🌐 Project</a>
+                    <a href="https://arxiv.org/abs/2510.08052">📄 Paper</a>
+                    <a href="https://github.com/BheeshmSharma/RASALoRE-BMVC-2025/">💻 Code</a>
+                    <a href="https://github.com/BheeshmSharma/BheeshmSharma.github.io/blob/main/RASALoRE/Files/RASALoRE_BMVC_Poster.pdf">📊 Poster</a>
+                </div>
+            </div>
+
+            <div class="paper">
+                <div class="paper-title">
+                    <a href="https://kugelblitz25.github.io/IsoSignVid2Aud">IsoSignVid2Aud: Sign Language Video to Audio Conversion without Text Intermediaries</a>
+                </div>
+                <div class="paper-authors">
+                    Harsh Kavediya, Vighnesh Nayak, Bheeshm Sharma, Balamurugan Palaniappan
+                </div>
+                <div class="paper-venue">
+                    The 5th International Conference on AIML Systems 2025
+                </div>
+                <div class="paper-links">
+                    <a href="https://kugelblitz25.github.io/IsoSignVid2Aud">🌐 Project</a>
+                    <a href="https://arxiv.org/abs/2510.07837">📄 Paper</a>
+                    <a href="https://github.com/Kugelblitz25/IsoSignVid2Aud/">💻 Code</a>
+                </div>
+            </div>
+
+            <div class="paper">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2509.16019">SLaM-DiMM: Shared Latent Modeling for Diffusion-Based Missing Modality Synthesis in Brain MRI Scans</a>
+                </div>
+                <div class="paper-authors">
+                    Bhavesh Sandbhor, Bheeshm Sharma, Balamurugan Palaniappan
+                </div>
+                <div class="paper-venue">
+                    BraTS 2025 Lighthouse Challenge at MICCAI 2025
+                </div>
+                <div class="paper-links">
+                    <a href="https://arxiv.org/abs/2509.16019">📄 Paper</a>
+                    <a href="https://github.com/BheeshmSharma/SLaM-DiMM-MICCAI-BraTS-Challenge-2025/">💻 Code</a>
+                </div>
+            </div>
+            
+            <div class="paper">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2409.19623">MCDDPM: Multichannel Conditional Denoising Diffusion Model for Unsupervised Anomaly Detection in Brain MRI</a>
+                </div>
+                <div class="paper-authors">
+                    Vivek Kumar Trivedi, Bheeshm Sharma, Balamurugan Palaniappan
+                </div>
+                <div class="paper-venue">
+                    CISP-BMEI 2024
+                </div>
+                <div class="paper-links">
+                    <a href="https://arxiv.org/abs/2409.19623">📄 Paper</a>
+                    <a href="https://github.com/vivekkumartri/MCDDPM/">💻 Code</a>
+                </div>
+            </div>
+
+            <div class="paper">
+                <div class="paper-title">
+                    <a href="https://www.researchgate.net/publication/378753200_PB-FELTuCS_Patch-Based_Filtering_for_Enhanced_Liver_Tumor_Classification_and_Segmentation">PB-FELTuCS: Patch-Based Filtering for Enhanced Liver Tumor Classification and Segmentation</a>
+                </div>
+                <div class="paper-authors">
+                    Bheeshm Sharma, Balamurugan Palaniappan
+                </div>
+                <div class="paper-venue">
+                    MICAD 2023
+                </div>
+                <div class="paper-links">
+                    <a href="https://www.researchgate.net/publication/378753200_PB-FELTuCS_Patch-Based_Filtering_for_Enhanced_Liver_Tumor_Classification_and_Segmentation">📄 Paper</a>
+                    <a href="https://github.com/BheeshmSharma/PB_FELTuCS/tree/main/">💻 Code</a>
                 </div>
             </div>
         </section>
 
-        <section id="news">
-            <h2>📰 Latest News</h2>
-            <div class="news-timeline">
-                <div class="news-item">
-                    <div class="news-date">November 2025</div>
-                    <div class="news-content">🎉 Our paper "RASALoRE" has been accepted at BMVC 2025!</div>
+        <section>
+            <h2>🎓 Education</h2>
+            <div class="paper">
+                <div class="paper-title">Ph.D. in Industrial Engineering and Operations Research</div>
+                <div class="paper-authors">Indian Institute of Technology Bombay</div>
+                <div class="paper-venue">2022 - Present</div>
+            </div>
+            <div class="paper">
+                <div class="paper-title">M.Sc. in Industrial Engineering and Operations Research</div>
+                <div class="paper-authors">Indian Institute of Technology Bombay</div>
+                <div class="paper-venue">2020 - 2022</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📞 Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <span>bheeshmsharma@iitb.ac.in</span>
                 </div>
-                <div class="news-item">
-                    <div class="news-date">October 2025</div>
-                    <div class="news-content">🎤 Presented paper at AIML Systems 2025 Conference</div>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">September 2025</div>
-                    <div class="news-content">🏆 Oral presentation at MICCAI 2025 BraTS Lighthouse Challenge</div>
+                <div class="contact-item">
+                    <strong>Office:</strong>
+                    <span>Medical Informatics Lab, A-91 Ecohub, IIT Bombay, Mumbai, India</span>
                 </div>
             </div>
         </section>
 
-        <section id="publications">
-            <h2>
+        <footer>
+            <p>© 2025 Bheeshm Sharma. Last updated: December 2025</p>
+            <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.7;">
+                Designed with modern web aesthetics
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
