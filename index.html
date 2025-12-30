@@ -11,234 +11,389 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
         }
 
+        /* Animated Header */
         header {
-            background: white;
-            padding: 60px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 40px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
             margin-bottom: 40px;
         }
 
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+
         .profile-image {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 25px;
-            border: 5px solid #f0f0f0;
+            margin-bottom: 30px;
+            border: 6px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #1a1a1a;
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .title {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 20px;
+            font-size: 1.3em;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .social-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
-            margin-top: 25px;
+            margin-top: 30px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .social-links a {
-            color: #0066cc;
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
             text-decoration: none;
+            border-radius: 30px;
             font-size: 0.95em;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         .social-links a:hover {
-            color: #004499;
-            text-decoration: underline;
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         section {
-            background: white;
-            padding: 40px;
+            background: var(--bg-primary);
+            padding: 50px 45px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-md);
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         h2 {
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            color: #1a1a1a;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
         }
 
         .about p {
-            margin-bottom: 15px;
-            text-align: justify;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            color: var(--text-secondary);
+            line-height: 1.8;
         }
 
         .research-interests {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .interest-tag {
-            background: #f0f0f0;
-            padding: 8px 16px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-size: 0.9em;
-            color: #555;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .interest-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
 
         .paper {
-            margin-bottom: 35px;
-            padding-bottom: 35px;
-            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .paper:hover {
+            background: #f3f4f6;
+            box-shadow: var(--shadow-md);
+            transform: translateX(5px);
         }
 
         .paper:last-child {
-            border-bottom: none;
             margin-bottom: 0;
-            padding-bottom: 0;
         }
 
         .paper-title {
-            font-size: 1.2em;
+            font-size: 1.25em;
             font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 10px;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
         }
 
         .paper-title a {
-            color: #0066cc;
+            color: var(--primary-color);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         .paper-title a:hover {
+            color: var(--secondary-color);
             text-decoration: underline;
         }
 
         .paper-authors {
-            color: #666;
-            margin-bottom: 8px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
             font-size: 0.95em;
         }
 
         .paper-venue {
-            color: #888;
+            color: var(--text-secondary);
             font-style: italic;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 0.9em;
+            font-weight: 500;
         }
 
         .paper-links {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-top: 12px;
+            margin-top: 15px;
         }
 
         .paper-links a {
-            padding: 6px 14px;
-            background: #f5f5f5;
-            color: #333;
+            padding: 8px 18px;
+            background: white;
+            color: var(--primary-color);
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 0.85em;
-            border: 1px solid #ddd;
-            transition: all 0.2s;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .paper-links a:hover {
-            background: #e8e8e8;
-            border-color: #999;
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
         .news-item {
-            margin-bottom: 20px;
-            padding-left: 20px;
-            border-left: 3px solid #e0e0e0;
+            margin-bottom: 25px;
+            padding: 20px;
+            padding-left: 25px;
+            border-left: 4px solid var(--accent-color);
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .news-item:hover {
+            background: #f3f4f6;
+            transform: translateX(5px);
         }
 
         .news-date {
-            color: #999;
+            color: var(--primary-color);
             font-size: 0.9em;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .news-item div:last-child {
+            color: var(--text-secondary);
+            font-size: 1.05em;
         }
 
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .contact-item {
             display: flex;
-            align-items: start;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #f3f4f6;
+            transform: translateY(-2px);
         }
 
         .contact-item strong {
             min-width: 80px;
-            color: #666;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .contact-item span {
+            color: var(--text-secondary);
         }
 
         footer {
             text-align: center;
-            padding: 30px 20px;
-            color: #999;
+            padding: 40px 20px;
+            color: var(--text-secondary);
             font-size: 0.9em;
         }
 
         @media (max-width: 768px) {
             header {
-                padding: 40px 20px;
+                padding: 60px 20px;
             }
 
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             section {
-                padding: 30px 20px;
+                padding: 35px 25px;
             }
 
             .social-links {
                 flex-direction: column;
                 align-items: center;
+                gap: 10px;
+            }
+
+            .social-links a {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .paper {
+                padding: 20px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
             }
         }
 
-        .highlight {
-            background: #fff9e6;
-            padding: 20px;
-            border-left: 4px solid #ffd700;
-            margin: 20px 0;
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <!-- Replace with your actual image -->
             <img src="/figures/BheeshmSharma.jpg" alt="Bheeshm Sharma" class="profile-image">
             
             <h1>Bheeshm Sharma</h1>
@@ -247,9 +402,9 @@
             <div class="social-links">
                 <a href="mailto:bheeshmsharma@iitb.ac.in">📧 Email</a>
                 <a href="https://github.com/BheeshmSharma" target="_blank">💻 GitHub</a>
-                <a href="https://scholar.google.com/citations?user=Q4VPZEQAAAAJ&hl=en" target="_blank">🎓 Google Scholar</a>
-                <a href="https://www.linkedin.com/in/bheeshm-sharma-bb7a721b8/" target="_blank">💼 LinkedIn</a> 
-                <a href="https://www.ieor.iitb.ac.in/students/Bheeshm_Sharma" target="_blank">💼 IITB Profile Page</a>>
+                <a href="https://scholar.google.com/citations?user=Q4VPZEQAAAAJ&hl=en" target="_blank">🎓 Scholar</a>
+                <a href="https://www.linkedin.com/in/bheeshm-sharma-bb7a721b8/" target="_blank">💼 LinkedIn</a>
+                <a href="https://www.ieor.iitb.ac.in/students/Bheeshm_Sharma" target="_blank">🏛️ IITB Profile</a>
             </div>
         </header>
 
@@ -259,12 +414,12 @@
                 I am a Ph.D. student in the Department of Industrial Engineering and Operations Research (IEOR) at IIT Bombay, working under the guidance of Prof. Balamurugan Palaniappan. My research is centered on developing efficient deep learning and multi-modal generative AI methods for applications in medical imaging as well as real-world image and video generation, with a special emphasis on few-shot, weakly supervised, and self-supervised learning paradigms.
             </p>
             
-            <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 1.3em;">Research Interests</h3>
+            <h3 style="margin-top: 35px; margin-bottom: 20px; font-size: 1.4em; color: var(--text-primary);">Research Interests</h3>
             <div class="research-interests">
                 <span class="interest-tag">Medical Imaging</span>
                 <span class="interest-tag">Vision-Language Models</span>
-                <span class="interest-tag">Multimodel Generative AI</span>
-                <span class="interest-tag">Few shot Efficient Learning</span>
+                <span class="interest-tag">Multimodal Generative AI</span>
+                <span class="interest-tag">Few-Shot Efficient Learning</span>
             </div>
         </section>
 
@@ -280,14 +435,13 @@
             </div>
             <div class="news-item">
                 <div class="news-date">September 2025</div>
-                <div>Oral presentation at MICCAI 2025 BraTS Lighthouse Challenge.</div>
+                <div>Oral presentation at MICCAI 2025 BraTS Lighthouse Challenge</div>
             </div>
         </section>
 
         <section>
             <h2>📚 Publications</h2>
             
-            <!-- Paper 1: RASALoRE -->
             <div class="paper">
                 <div class="paper-title">
                     <a href="RASALoRE/">RASALoRE: Region-Aware Spatial Attention with Location-based Random Embeddings for Weakly Supervised Anomaly Detection in Brain MRI Scans</a>
@@ -299,14 +453,13 @@
                     British Machine Vision Conference (BMVC), 2025
                 </div>
                 <div class="paper-links">
-                    <a href="RASALoRE/">🌐 Project Page</a>
+                    <a href="RASALoRE/">🌐 Project</a>
                     <a href="https://arxiv.org/abs/2510.08052">📄 Paper</a>
                     <a href="https://github.com/BheeshmSharma/RASALoRE-BMVC-2025/">💻 Code</a>
                     <a href="https://github.com/BheeshmSharma/BheeshmSharma.github.io/blob/main/RASALoRE/Files/RASALoRE_BMVC_Poster.pdf">📊 Poster</a>
                 </div>
             </div>
 
-            <!-- Paper 2: IsoSignVid2Aud -->
             <div class="paper">
                 <div class="paper-title">
                     <a href="https://kugelblitz25.github.io/IsoSignVid2Aud">IsoSignVid2Aud: Sign Language Video to Audio Conversion without Text Intermediaries</a>
@@ -315,25 +468,24 @@
                     Harsh Kavediya, Vighnesh Nayak, Bheeshm Sharma, Balamurugan Palaniappan
                 </div>
                 <div class="paper-venue">
-                    The 5th International Conference on AIML Systems 2025.
+                    The 5th International Conference on AIML Systems 2025
                 </div>
                 <div class="paper-links">
-                    <a href="https://kugelblitz25.github.io/IsoSignVid2Aud">🌐 Project Page</a>
+                    <a href="https://kugelblitz25.github.io/IsoSignVid2Aud">🌐 Project</a>
                     <a href="https://arxiv.org/abs/2510.07837">📄 Paper</a>
                     <a href="https://github.com/Kugelblitz25/IsoSignVid2Aud/">💻 Code</a>
                 </div>
             </div>
 
-            <!-- Paper 3: SLaM-DiMM -->
             <div class="paper">
                 <div class="paper-title">
-                    <a href="https://arxiv.org/abs/2509.16019"> SLaM-DiMM: Shared Latent Modeling for Diffusion-Based Missing Modality Synthesis in Brain MRI Scans.</a>
+                    <a href="https://arxiv.org/abs/2509.16019">SLaM-DiMM: Shared Latent Modeling for Diffusion-Based Missing Modality Synthesis in Brain MRI Scans</a>
                 </div>
                 <div class="paper-authors">
                     Bhavesh Sandbhor, Bheeshm Sharma, Balamurugan Palaniappan
                 </div>
                 <div class="paper-venue">
-                    BraTS 2025 Lighthouse Challenge at The Medical Image Computing and Computer Assisted Intervention (MICCAI 2025).
+                    BraTS 2025 Lighthouse Challenge at MICCAI 2025
                 </div>
                 <div class="paper-links">
                     <a href="https://arxiv.org/abs/2509.16019">📄 Paper</a>
@@ -341,16 +493,15 @@
                 </div>
             </div>
             
-            <!-- Paper 4: MCDDPM -->
             <div class="paper">
                 <div class="paper-title">
-                    <a href="https://arxiv.org/abs/2409.19623">MCDDPM: Multichannel Conditional Denoising Diffusion Model for Unsupervised Anomaly Detection in Brain MRI.</a>
+                    <a href="https://arxiv.org/abs/2409.19623">MCDDPM: Multichannel Conditional Denoising Diffusion Model for Unsupervised Anomaly Detection in Brain MRI</a>
                 </div>
                 <div class="paper-authors">
                     Vivek Kumar Trivedi, Bheeshm Sharma, Balamurugan Palaniappan
                 </div>
                 <div class="paper-venue">
-                    The 17th International Congress on Image and Signal Processing, BioMedical Engineering and Informatics (CISP-BMEI 2024).
+                    CISP-BMEI 2024
                 </div>
                 <div class="paper-links">
                     <a href="https://arxiv.org/abs/2409.19623">📄 Paper</a>
@@ -358,42 +509,21 @@
                 </div>
             </div>
 
-            <!-- Paper 5: PB-FELTuCS -->
             <div class="paper">
                 <div class="paper-title">
-                    <a href="https://www.researchgate.net/publication/378753200_PB-FELTuCS_Patch-Based_Filtering_for_Enhanced_Liver_Tumor_Classification_and_Segmentation">PB-FELTuCS: Patch-Based Filtering for Enhanced Liver Tumor Classification and Segmentation.</a>
+                    <a href="https://www.researchgate.net/publication/378753200_PB-FELTuCS_Patch-Based_Filtering_for_Enhanced_Liver_Tumor_Classification_and_Segmentation">PB-FELTuCS: Patch-Based Filtering for Enhanced Liver Tumor Classification and Segmentation</a>
                 </div>
                 <div class="paper-authors">
                     Bheeshm Sharma, Balamurugan Palaniappan
                 </div>
                 <div class="paper-venue">
-                    In the International Conference on Medical Imaging and Computer-Aided Diagnosis (MICAD 2023).
+                    MICAD 2023
                 </div>
                 <div class="paper-links">
                     <a href="https://www.researchgate.net/publication/378753200_PB-FELTuCS_Patch-Based_Filtering_for_Enhanced_Liver_Tumor_Classification_and_Segmentation">📄 Paper</a>
                     <a href="https://github.com/BheeshmSharma/PB_FELTuCS/tree/main/">💻 Code</a>
                 </div>
             </div>
-
-            <!-- Paper 2 - Template 
-            <div class="paper">
-                <div class="paper-title">
-                    <a href="#">Your Second Paper Title Here</a>
-                </div>
-                <div class="paper-authors">
-                    Author 1, <strong>Bheeshm Sharma</strong>, Author 3
-                </div>
-                <div class="paper-venue">
-                    Conference Name, Year
-                </div>
-                <div class="paper-links">
-                    <a href="#">🌐 Project Page</a>
-                    <a href="#">📄 Paper</a>
-                    <a href="#">💻 Code</a>
-                </div>
-            </div>
-            -->
-
         </section>
 
         <section>
@@ -405,12 +535,10 @@
             </div>
             <div class="paper">
                 <div class="paper-title">M.Sc. in Industrial Engineering and Operations Research</div>
-                <div class="paper-authors>"Industrial Engineering and Operations Research</div>
-                <div class="paper-venue">2020-2022</div>
+                <div class="paper-authors">Indian Institute of Technology Bombay</div>
+                <div class="paper-venue">2020 - 2022</div>
             </div>
         </section>
-
-        <section>
 
         <section>
             <h2>📞 Contact</h2>
@@ -427,9 +555,9 @@
         </section>
 
         <footer>
-            <p>© 2025 Bheeshm Sharma. Last updated: November 2025</p>
-            <p style="margin-top: 10px; font-size: 0.85em;">
-                Template inspired by academic portfolio designs
+            <p>© 2025 Bheeshm Sharma. Last updated: December 2025</p>
+            <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.7;">
+                Designed with modern web aesthetics
             </p>
         </footer>
     </div>
